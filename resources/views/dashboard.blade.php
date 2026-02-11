@@ -55,10 +55,8 @@
                             <div
                                 class="group p-4 bg-gray-50 rounded-3xl hover:bg-red-50 transition-all border border-transparent hover:border-red-100">
                                 <p class="text-[8px] font-black text-red-400 uppercase mb-1">{{ $alert->end_date }}</p>
-                                <a href="{{ route('project.show', $alert->id) }}">
-                                    <h4 class="text-sm font-bold leading-tight text-gray-800 group-hover:text-red-700">
-                                        {{ $alert->name }}</h4>
-                                </a>
+                                <h4 class="text-sm font-bold leading-tight text-gray-800 group-hover:text-red-700">
+                                    {{ $alert->name }}</h4>
                             </div>
                         @empty
                             <div
@@ -73,103 +71,12 @@
                     <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 mb-4 italic">Pubblicazioni
                     </h3>
                     <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-2">
-                        @foreach ($manuscripts as $pub)
-                            @php $modalId = 'modal-pub-' . $pub->id; @endphp
-
-                            {{-- Elemento della lista: ora è un button che apre il modal --}}
-                            <button data-modal-target="{{ $modalId }}" data-modal-toggle="{{ $modalId }}"
-                                class="w-full text-left block p-3 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
-                                <p class="text-xs font-medium text-gray-400 group-hover:text-white line-clamp-1 italic">
-                                    {{ $pub->name }}
-                                </p>
-                            </button>
-
-                            {{-- Il Modal per le pubblicazioni --}}
-                            <div id="{{ $modalId }}" tabindex="-1" aria-hidden="true"
-                                class="fixed top-0 left-0 right-0 z-[100] hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-
-                                <div class="relative w-full max-w-2xl max-h-full">
-                                    <div
-                                        class="relative bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-
-                                        <div
-                                            class="flex items-center justify-between p-5 border-b border-gray-100 bg-gray-50">
-                                            <h3 class="text-xl font-bold text-gray-900">Dettagli Pubblicazione</h3>
-                                            <button type="button"
-                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center"
-                                                data-modal-hide="{{ $modalId }}">
-                                                <svg class="w-3 h-3" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 14 14">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="p-8 space-y-6">
-                                            <h4 class="text-2xl font-extrabold text-blue-600 leading-tight italic">
-                                                {{ $pub->name }}
-                                            </h4>
-
-                                            <div class="text-gray-700 leading-relaxed text-base">
-                                                {{ $pub->description }}
-                                            </div>
-
-                                            <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
-                                                <p class="text-xs font-bold text-blue-800 uppercase tracking-widest mb-4">
-                                                    Autori e Ruoli</p>
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                    @foreach ($pub->authors as $author)
-                                                        <div
-                                                            class="flex items-center text-sm bg-white p-2 rounded-lg border border-blue-50">
-                                                            <span
-                                                                class="font-bold text-gray-800">{{ $author->name }}</span>
-                                                            <span
-                                                                class="ml-2 text-blue-500 italic text-xs">({{ $author->role }})</span>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex items-center p-6 space-x-3 border-t border-gray-100 bg-gray-50">
-                                            <button data-modal-hide="{{ $modalId }}" type="button"
-                                                class="flex-1 py-3 px-5 text-sm font-medium text-gray-700 bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-all shadow-sm">
-                                                Chiudi
-                                            </button>
-
-                                            @if (auth()->user()?->role === 'Admin/PI')
-                                                <div class="flex items-center space-x-2">
-                                                    <a href="{{ route('publication.edit', $pub->id) }}"
-                                                        class="p-2 text-blue-600 bg-white border border-blue-100 hover:bg-blue-50 rounded-lg shadow-sm transition-colors">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                stroke-width="2"
-                                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                        </svg>
-                                                    </a>
-                                                    <form action="{{ route('publication.destroy', $pub->id) }}"
-                                                        method="POST"
-                                                        onsubmit="return confirm('Eliminare definitivamente?')">
-                                                        @csrf @method('DELETE')
-                                                        <button type="submit"
-                                                            class="p-2 text-red-600 bg-white border border-red-100 hover:bg-red-50 rounded-lg shadow-sm transition-colors">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        @foreach ($manuscripts as $doc)
+                            <a href="{{ route('publication.show', $doc->id) }}"
+                                class="block p-3 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
+                                <p class="text-xs font-medium text-gray-400 group-hover:text-white line-clamp-1 italic">/
+                                    {{ $doc->title }}</p>
+                            </a>
                         @endforeach
                     </div>
                 </section>
