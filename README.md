@@ -25,7 +25,7 @@ Il software è stato ingegnerizzato adottando un approccio "full-stack" moderno,
 
 ## Risultato
 ![homepage](/public/img/results/homePage.png)
-![homepage](/public/img/results/home2.png)
+![homepag2](/public/img/results/home2.png)
 ![login](/public/img/results/login.png)
 ![dashboardAdmin](/public/img/results/admin.png)
 ![new](/public/img/results/new.png)
