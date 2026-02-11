@@ -1,66 +1,36 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Alt_F104_Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+L’applicativo Alt_F104_Project nasce dalla necessità di digitalizzare e ottimizzare i flussi di lavoro all'interno dei laboratori di ricerca universitari. Il sistema si configura come un hub collaborativo permettendo una gestione fluida che va dalla genesi di un'idea progettuale fino alla diffusione dei risultati scientifici.
 
-## About Laravel
+Attraverso una struttura modulare, la piattaforma abilita il monitoraggio granulare delle attività (mediante la scomposizione in milestone e task operativi) e la conservazione sistematica dei prodotti della ricerca, offrendo un controllo centralizzato sulla documentazione tecnica e sulle pubblicazioni in formato PDF.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Architettura 
+Il software è stato ingegnerizzato adottando un approccio "full-stack" moderno, garantendo prestazioni elevate, sicurezza dei dati e un'esperienza utente reattiva. La struttura si fonda sui seguenti pilastri tecnologici:
+- Logica di Business (Backend): Il cuore del sistema è sviluppato in Laravel 10. L'adozione del pattern MVC e dell'ORM Eloquent ha permesso di mappare le complesse relazioni tra ricercatori, progetti e paper scientifici in modo pulito.
+- Sicurezza e Accessi: La gestione dell'identity provider e la protezione dei perimetri operativi sono affidate a Laravel Breeze, che garantisce standard elevati nei processi di autenticazione e nel controllo degli accessi basato sui ruoli.
+- Persistenza dei Dati: I flussi informativi sono stoccati in un database relazionale MySQL, ottimizzato per gestire query complesse e garantire l'integrità referenziale tra le diverse entità di sistema.
+- Interfaccia Utente (Frontend): * Blade & Tailwind CSS: Per la costruzione di layout dinamici, responsivi e visivamente coerenti, arricchiti da librerie specifiche per la gestione dei form.
+- Alpine.js: Per l'implementazione di componenti reattivi "on-page", minimizzando il carico sul browser senza rinunciare a un'interazione fluida.
+- Build & Storage: Il workflow di sviluppo è accelerato da Vite, mentre il caricamento e la consultazione dei file scientifici sono gestiti tramite il Filesystem di Laravel, configurato per un'archiviazione sicura nel public storage.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🛠️ Tecnologie utilizzate
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   Backend: Laravel (PHP)
+-   Autenticazione con Laravel Breeze
+-   Gestione delle entità tramite Eloquent ORM e relazioni nel database
+-   Tailwind CSS per la stilizzazione
+-   Database: MySQL
+-   Postman per testare le API
+-   Laravel Artisan per gestire la migrazione del database
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Risultato
+![homepage](/public/img/results/homePage.png)
+![homepage](/public/img/results/home2.png)
+![login](/public/img/results/login.png)
+![dashboardAdmin](/public/img/results/admin.png)
+![new](/public/img/results/new.png)
+![publication](/public/img/results/newPublication.png)
+![user](/public/img/results/adminNew.png)
+![publicationTotal](/public/img/results/publicationAdmin.png)
+![userTotal](/public/img/results/teamAdmin.png)
+![dashboard](/public/img/results/dashboard.png)
